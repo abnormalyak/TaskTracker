@@ -1,24 +1,2 @@
-# vue-crash-traversy
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Learning Vue, with the base of the code originally created from following this tutorial: https://www.youtube.com/watch?v=qZXt1Aom3Cs
+Since, I have added / changed functionality, and have begun learning about and integrating Quasar into my work, a great component library (https://quasar.dev/).
