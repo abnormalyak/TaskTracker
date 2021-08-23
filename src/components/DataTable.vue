@@ -159,7 +159,7 @@ export default {
 .q-table tbody td:before {
   background: rgba(255, 0, 0, 0.1);
 } */
-.alternate-roow-colours tr:nth-child(odd) {
+.alternate-row-colours tr:nth-child(odd) {
   background: #304ffe;
 }
 .alternate-row-colours tr:nth-child(even) {
