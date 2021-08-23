@@ -1,7 +1,7 @@
 <template>
   <div class="q-pa-md">
     <q-table
-      @row-click="onRowClick"
+      @row-dblclick="onRowClick"
       class="alternate-row-colours"
       title="Patients"
       :rows="rows"
