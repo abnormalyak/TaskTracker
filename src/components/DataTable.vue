@@ -63,6 +63,11 @@ const columns = [
     field: "imageCount",
     sortable: true,
   },
+  {
+      name: "operations",
+      label: "Operations",
+      field: "operations"
+  }
 ];
 
 const rows = [
