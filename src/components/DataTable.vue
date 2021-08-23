@@ -1,6 +1,7 @@
 <template>
   <div class="q-pa-md">
     <q-table
+    class="alternate-row-colours"
       title="Patients"
       :rows="rows"
       :columns="columns"
@@ -14,10 +15,6 @@
       table-class="bg-indigo-14"
       card-class="bg-indigo-10"
     >
-      <!-- <q-tr :class="(props.rowIndex%2)===0?'bg-grey':'bg-white'">
-        <div class="bg-white"></div>
-        <div class="bg-grey"></div>
-    </q-tr> -->
     </q-table>
     <!-- Debugging purposes (shows which are selected)
     <div class="q-mt-md">
@@ -84,6 +81,22 @@ const rows = [
     modalities: "CT",
     imageCount: "40",
   },
+  {
+    patientID: "Jake",
+    patientName: "A",
+    studyDate: "21/08/21",
+    studyDesc: "CT scan of chest",
+    modalities: "CT",
+    imageCount: "40",
+  },
+  {
+    patientID: "James",
+    patientName: "Deer",
+    studyDate: "21/08/21",
+    studyDesc: "CT scan of chest",
+    modalities: "CT",
+    imageCount: "40",
+  },
 ];
 
 export default {
@@ -112,6 +125,13 @@ export default {
 .q-table tbody td:before {
   background: rgba(255, 0, 0, 0.1);
 } */
+.alternate-roow-colours tr:nth-child(odd) {
+    background: #304ffe;
+}
+.alternate-row-colours tr:nth-child(even) {
+    background: #536dfe;
+}
+
 .bg-white {
   background: white;
 }
