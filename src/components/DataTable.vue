@@ -1,5 +1,6 @@
 <template>
   <div class="q-pa-md">
+      
     <q-table
       @row-dblclick="onRowClick"
       class="alternate-row-colours"
@@ -16,6 +17,18 @@
       table-class="bg-indigo-14"
       card-class="bg-indigo-10"
     >
+      <template v-slot:body-cell-operations="props">
+        <q-td :props="props">
+          <q-btn
+          color="negative"
+          icon-right="delete"
+          no-caps
+          flat
+          dense
+          @click="deleteval(data.indexOf(props.row))"
+        />
+        </q-td>
+      </template>
     </q-table>
     <!-- Debugging purposes (shows which are selected)
     <div class="q-mt-md">
@@ -64,10 +77,10 @@ const columns = [
     sortable: true,
   },
   {
-      name: "operations",
-      label: "Operations",
-      field: "operations"
-  }
+    name: "operations",
+    label: "Operations",
+    field: "operations",
+  },
 ];
 
 const rows = [
@@ -126,10 +139,16 @@ export default {
     };
   },
   methods: {
-      onRowClick(e, row) {
-          console.log(row.patientID)
-      }
-  }
+    onRowClick(e, row) {
+      console.log(row.patientID);
+    },
+    deleteval(index){
+      console.log(index)
+      this.data.splice(index, 1);
+      
+      console.log(this.data)
+    }
+  },
 };
 </script>
 
