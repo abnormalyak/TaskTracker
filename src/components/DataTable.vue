@@ -9,6 +9,7 @@
       :columns="columns"
       :separator="separator"
       :selected-rows-label="getSelectedString"
+      :data="rows"
       selection="single"
       v-model:selected="selected"
       row-key="patientID"
@@ -21,11 +22,11 @@
         <q-td :props="props">
           <q-btn
           color="negative"
-          icon-right="delete"
+          icon-right="font_download"
           no-caps
           flat
           dense
-          @click="deleteval(data.indexOf(props.row))"
+          @click="deleteval(props)"
         />
         </q-td>
       </template>
@@ -142,11 +143,8 @@ export default {
     onRowClick(e, row) {
       console.log(row.patientID);
     },
-    deleteval(index){
-      console.log(index)
-      this.data.splice(index, 1);
-      
-      console.log(this.data)
+    deleteval(e){
+        console.log(e.row.patientID)
     }
   },
 };
