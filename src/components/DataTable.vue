@@ -1,13 +1,14 @@
 <template>
   <div class="q-pa-md">
     <q-table
-    class="alternate-row-colours"
+      @row-click="onRowClick"
+      class="alternate-row-colours"
       title="Patients"
       :rows="rows"
       :columns="columns"
       :separator="separator"
       :selected-rows-label="getSelectedString"
-      selection="multiple"
+      selection="single"
       v-model:selected="selected"
       row-key="patientID"
       dark
@@ -102,19 +103,28 @@ const rows = [
 export default {
   name: "DataTable",
   setup() {
-      const selected = ref([])
+    const selected = ref([]);
 
-      return {
-        selected,
-        separator: ref("cell"),
-        columns,
-        rows,
+    return {
+      selected,
+      separator: ref("cell"),
+      columns,
+      rows,
 
-        getSelectedString () {
-            return selected.value.length === 0 ? '' : `${selected.value.length} record${selected.value.length > 1 ? 's' : ''} selected of ${rows.length}`
-        }
+      getSelectedString() {
+        return selected.value.length === 0
+          ? ""
+          : `${selected.value.length} record${
+              selected.value.length > 1 ? "s" : ""
+            } selected of ${rows.length}`;
+      },
     };
   },
+  methods: {
+      onRowClick(e, row) {
+          console.log(row.patientID)
+      }
+  }
 };
 </script>
 
@@ -126,10 +136,10 @@ export default {
   background: rgba(255, 0, 0, 0.1);
 } */
 .alternate-roow-colours tr:nth-child(odd) {
-    background: #304ffe;
+  background: #304ffe;
 }
 .alternate-row-colours tr:nth-child(even) {
-    background: #536dfe;
+  background: #536dfe;
 }
 
 .bg-white {
