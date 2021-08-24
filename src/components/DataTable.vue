@@ -2,7 +2,7 @@
   <div class="q-pa-md">
       
     <q-table
-      @row-dblclick="onRowClick"
+      @row-dblclick="onRowDblClick"
       class="alternate-row-colours"
       title="Patients"
       :rows="rows"
@@ -22,11 +22,19 @@
         <q-td :props="props">
           <q-btn
           color="negative"
-          icon-right="font_download"
+          icon-right="desktop_windows"
           no-caps
           flat
           dense
-          @click="deleteval(props)"
+          @click="view(props)"
+        />
+        <q-btn
+          color="negative"
+          icon-right="edit"
+          no-caps
+          flat
+          dense
+          @click="edit(props)"
         />
         </q-td>
       </template>
@@ -140,23 +148,20 @@ export default {
     };
   },
   methods: {
-    onRowClick(e, row) {
-      console.log(row.patientID);
+    onRowDblClick(e, row) {
+      console.log('Double clicked: ' + row.patientID);
     },
-    deleteval(e){
-        console.log(e.row.patientID)
+    view(e){
+        console.log('View: ' + e.row.patientID)
+    },
+    edit(e){
+        console.log('Edit: ' + e.row.patientID)
     }
   },
 };
 </script>
 
 <style>
-/* .q-table tbody td:after {
-  background: rgba(255, 0, 0, 0.2);
-}
-.q-table tbody td:before {
-  background: rgba(255, 0, 0, 0.1);
-} */
 .alternate-row-colours tr:nth-child(odd) {
   background: #304ffe;
 }
